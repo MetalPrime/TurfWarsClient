@@ -1,5 +1,7 @@
 package com.example.turfwarsclient;
 
+import android.util.Log;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -25,11 +27,21 @@ public class TCPClient extends Thread {
         return instanceUnique;
     }
 
+
+
+    public String getNumberServer() {
+        return numberServer;
+    }
+
+    public void setNumberServer(String numberServer) {
+        this.numberServer = numberServer;
+    }
+
+    private String numberServer;
     private Socket socket;
     private OnMessageListener observer;
     private BufferedWriter writer;
     private BufferedReader reader;
-
 
     public void setObserver(OnMessageListener observer) {
         // TODO Auto-generated method stub
@@ -40,7 +52,9 @@ public class TCPClient extends Thread {
     public void run() {
         super.run();
         try {
-            socket = new Socket((InetAddress) null,5000);
+            Log.e("Status","Esperando conexión");
+            socket = new Socket(numberServer,5000);
+            Log.e("Status","Conexión establecida");
             InputStream is = socket.getInputStream();
             InputStreamReader isr = new InputStreamReader(is);
             reader = new BufferedReader(isr);
