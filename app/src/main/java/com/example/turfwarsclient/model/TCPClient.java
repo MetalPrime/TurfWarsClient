@@ -1,4 +1,4 @@
-package com.example.turfwarsclient;
+package com.example.turfwarsclient.model;
 
 import android.util.Log;
 
@@ -9,7 +9,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
-import java.net.InetAddress;
 import java.net.Socket;
 
 public class TCPClient extends Thread {
@@ -20,7 +19,7 @@ public class TCPClient extends Thread {
 
     protected static TCPClient instanceUnique;
 
-    protected static  TCPClient getInstance() {
+    public static  TCPClient getInstance() {
         if (instanceUnique==null){
             instanceUnique = new TCPClient();
         }

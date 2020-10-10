@@ -1,9 +1,11 @@
-package com.example.turfwarsclient;
+package com.example.turfwarsclient.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.widget.Button;
+
+import com.example.turfwarsclient.R;
 
 public class ControlScreen extends AppCompatActivity {
 

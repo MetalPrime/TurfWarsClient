@@ -1,4 +1,4 @@
-package com.example.turfwarsclient;
+package com.example.turfwarsclient.model;
 
 public class Name {
     private String type;

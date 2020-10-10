@@ -1,4 +1,4 @@
-package com.example.turfwarsclient;
+package com.example.turfwarsclient.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,12 +7,19 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.turfwarsclient.model.OnMessageListener;
+import com.example.turfwarsclient.R;
+import com.example.turfwarsclient.model.TCPClient;
+
+import static com.example.turfwarsclient.model.TCPClient.*;
+
 public class MainActivity extends AppCompatActivity implements OnMessageListener {
 
     private EditText ip1,ip2,ip3,ip4;
     private EditText nameInput;
     private Button btnConnection;
     private TCPClient tcp;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
