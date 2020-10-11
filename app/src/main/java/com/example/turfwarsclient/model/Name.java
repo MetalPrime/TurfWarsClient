@@ -1,13 +1,12 @@
 package com.example.turfwarsclient.model;
 
 public class Name {
-    private String type;
+    private String type  = "Name";
     private String name;
 
-    public Name(String type,String name){
-        this.type = "Name";
-        this.name = name;
 
+    public Name(String name){
+        this.name = name;
     }
 
     public Name() {
