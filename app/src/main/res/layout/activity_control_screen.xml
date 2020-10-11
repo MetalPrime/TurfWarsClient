@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#C2B8C6"
     tools:context=".view.ControlScreen">
 
     <Button
@@ -51,6 +52,7 @@
             android:id="@+id/btnUp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/gamepadArriba"
             android:text="Up"
             app:layout_constraintBottom_toTopOf="@+id/btnDown"
             app:layout_constraintEnd_toEndOf="parent"
@@ -62,6 +64,7 @@
             android:id="@+id/btnDown"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/gamepadAbajo"
             android:text="down"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -73,6 +76,7 @@
             android:id="@+id/btnLeft"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/gamepadIzquierda"
             android:text="left"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/btnRight"
@@ -84,6 +88,7 @@
             android:id="@+id/btnRight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/gamepadDerecha"
             android:text="right"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -102,10 +107,11 @@
 
         <Button
             android:id="@+id/btnShot"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="130dp"
             android:width="100sp"
             android:height="100sp"
+            android:background="@drawable/botonControl"
             android:ellipsize="marquee"
             android:text="shot"
             app:layout_constraintBottom_toBottomOf="parent"
