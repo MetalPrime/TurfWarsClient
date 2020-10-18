@@ -2,14 +2,17 @@ package com.example.turfwarsclient.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.turfwarsclient.model.Name;
 import com.example.turfwarsclient.model.OnMessageListener;
 import com.example.turfwarsclient.R;
 import com.example.turfwarsclient.model.TCPClient;
+import com.google.gson.Gson;
 
 import static com.example.turfwarsclient.model.TCPClient.*;
 
@@ -45,8 +48,20 @@ public class MainActivity extends AppCompatActivity implements OnMessageListener
                                     if(tcp.isAlive()){
                                         try {
                                             Thread.sleep(300);
-                                            tcp.sendMessages("Dandole duro");
-                                            Log.e("entro","confirmamos entro");
+                                            runOnUiThread(
+                                                    ()->{
+                                                        Log.e("entro","confirmamos entro");
+                                                        Gson gson = new Gson();
+                                                        Name name = new Name(nameInput.getText().toString());
+                                                        String line = gson.toJson(name);
+                                                        tcp.sendMessages(line);
+                                                        Intent i = new Intent(this,ControlScreen.class);
+                                                        startActivity(i);
+
+
+                                                    }
+                                            );
+
                                         } catch (InterruptedException e) {
                                             e.printStackTrace();
                                         }

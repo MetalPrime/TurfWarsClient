@@ -74,8 +74,8 @@
 
         <Button
             android:id="@+id/btnLeft"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="105dp"
+            android:layout_height="100dp"
             android:background="@drawable/gamepadIzquierda"
             android:text="left"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -86,8 +86,8 @@
 
         <Button
             android:id="@+id/btnRight"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="104dp"
+            android:layout_height="100dp"
             android:background="@drawable/gamepadDerecha"
             android:text="right"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -107,8 +107,8 @@
 
         <Button
             android:id="@+id/btnShot"
-            android:layout_width="100dp"
-            android:layout_height="130dp"
+            android:layout_width="150dp"
+            android:layout_height="180dp"
             android:width="100sp"
             android:height="100sp"
             android:background="@drawable/botonControl"
