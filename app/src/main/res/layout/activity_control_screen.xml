@@ -7,52 +7,32 @@
     android:background="#C2B8C6"
     tools:context=".view.ControlScreen">
 
-    <Button
-        android:id="@+id/btnWeaponRifle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="rifle"
-        app:layout_constraintEnd_toStartOf="@+id/btnWeaponShotgun"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnWeaponShotgun"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="shotgun"
-        app:layout_constraintEnd_toStartOf="@+id/btnWeaponPistol"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btnWeaponRifle"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnWeaponPistol"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="pistol"
+    <ImageView
+        android:id="@+id/imgBar"
+        android:layout_width="0dp"
+        android:layout_height="155dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="40dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btnWeaponShotgun"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/controlesvidatotal" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="563dp"
         android:layout_height="0dp"
+        android:background="#C2B8C6"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnWeaponRifle">
+        app:layout_constraintTop_toBottomOf="@+id/imgBar">
 
         <Button
             android:id="@+id/btnUp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/gamepadarriba"
+            android:background="@drawable/gamepadArriba"
             android:text="Up"
             app:layout_constraintBottom_toTopOf="@+id/btnDown"
             app:layout_constraintEnd_toEndOf="parent"
@@ -64,7 +44,7 @@
             android:id="@+id/btnDown"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/gamepadabajo"
+            android:background="@drawable/gamepadAbajo"
             android:text="down"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -76,7 +56,7 @@
             android:id="@+id/btnLeft"
             android:layout_width="105dp"
             android:layout_height="100dp"
-            android:background="@drawable/gamepadizquierda"
+            android:background="@drawable/gamepadIzquierda"
             android:text="left"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/btnRight"
@@ -88,7 +68,7 @@
             android:id="@+id/btnRight"
             android:layout_width="104dp"
             android:layout_height="100dp"
-            android:background="@drawable/gamepadderecha"
+            android:background="@drawable/gamepadDerecha"
             android:text="right"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -100,10 +80,11 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="#C2B8C6"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/constraintLayout"
-        app:layout_constraintTop_toBottomOf="@+id/btnWeaponPistol">
+        app:layout_constraintTop_toBottomOf="@+id/imgBar">
 
         <Button
             android:id="@+id/btnShot"
@@ -111,8 +92,9 @@
             android:layout_height="180dp"
             android:width="100sp"
             android:height="100sp"
-            android:background="@drawable/botoncontrol"
+            android:background="@drawable/botonControl"
             android:ellipsize="marquee"
+            android:fontFamily="@font/megaman_2"
             android:text="shot"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.example.turfwarsclient.R;
 import com.example.turfwarsclient.model.Bullet;
@@ -23,9 +24,7 @@ public class ControlScreen extends AppCompatActivity implements View.OnClickList
 
     private Button btnShot;
 
-    private Button btnWeaponRifle;
-    private Button btnWeaponShotgun;
-    private Button btnWeaponPistol;
+    private ImageView barLife;
 
     private Coordinate coordinate;
     private Gson gson;
@@ -46,6 +45,8 @@ public class ControlScreen extends AppCompatActivity implements View.OnClickList
         btnRight = findViewById(R.id.btnRight);
 
         btnShot = findViewById(R.id.btnShot);
+
+        barLife = findViewById(R.id.imgBar);
 
         tcp = TCPClient.getInstance();
         tcp.setObserver(this);
