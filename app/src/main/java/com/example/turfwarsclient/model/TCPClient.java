@@ -2,6 +2,8 @@ package com.example.turfwarsclient.model;
 
 import android.util.Log;
 
+import com.google.gson.Gson;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -66,7 +68,15 @@ public class TCPClient extends Thread {
                 System.out.println("Esperando Mensaje");
                 String line = reader.readLine();
                 System.out.println("Recibido:"+" "+line);
-                this.observer.OnMessage(line);
+                Gson gson = new Gson();
+                Generic generic = gson.fromJson(line, Generic.class);
+
+                switch(generic.getType()) {
+                    case "Coordinate":
+                        Coordinate coord = gson.fromJson(line, Coordinate.class);
+                        this.observer.newPosition(coord.getPosX(), coord.getPosY());
+                        break;
+                }
             }
 
         } catch (IOException e) {

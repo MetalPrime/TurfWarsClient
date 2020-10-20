@@ -82,5 +82,10 @@ public class MainActivity extends AppCompatActivity implements OnMessageListener
 
     }
 
+    @Override
+    public void newPosition(int x, int y) {
+
+    }
+
 
 }

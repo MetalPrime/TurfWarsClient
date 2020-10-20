@@ -1,6 +1,7 @@
 package com.example.turfwarsclient.model;
 
 public class Coordinate {
+    private String type = "Coordinate";
     private int posX;
     private int posY;
 

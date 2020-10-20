@@ -4,5 +4,7 @@ public interface OnMessageListener {
 
     public void OnMessage(String msg);
 
+    public void newPosition(int x, int y);
+
 
 }
