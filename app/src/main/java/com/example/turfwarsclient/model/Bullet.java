@@ -1,6 +1,7 @@
 package com.example.turfwarsclient.model;
 
 public class Bullet {
+    private  int damage;
     private String type = "Bullet";
     private int posX;
     private int posY;
@@ -8,11 +9,12 @@ public class Bullet {
 
 
 
-    public Bullet(int posX, int posY, int mov) {
+    public Bullet(int posX, int posY, int mov, int damage) {
         super();
         this.posX = posX;
         this.posY = posY;
         this.mov = mov;
+        this.damage = damage;
     }
 
     public String getType() {
@@ -45,5 +47,13 @@ public class Bullet {
 
     public void setMov(int mov) {
         this.mov = mov;
+    }
+
+    public int getDamage() {
+        return damage;
+    }
+
+    public void setDamage(int damage) {
+        this.damage = damage;
     }
 }

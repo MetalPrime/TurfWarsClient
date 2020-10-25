@@ -6,5 +6,5 @@ public interface OnMessageListener {
 
     public void newPosition(int x, int y);
 
-
+    public void currentLife(String status);
 }

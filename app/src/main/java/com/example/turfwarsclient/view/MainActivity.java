@@ -54,7 +54,9 @@ public class MainActivity extends AppCompatActivity implements OnMessageListener
                                                         Gson gson = new Gson();
                                                         Name name = new Name(nameInput.getText().toString());
                                                         String line = gson.toJson(name);
-                                                        tcp.sendMessages(line);
+                                                        if(line!=null){
+                                                            tcp.sendMessages(line);
+                                                        }
                                                         Intent i = new Intent(this,ControlScreen.class);
                                                         startActivity(i);
 
@@ -84,6 +86,11 @@ public class MainActivity extends AppCompatActivity implements OnMessageListener
 
     @Override
     public void newPosition(int x, int y) {
+
+    }
+
+    @Override
+    public void currentLife(String status) {
 
     }
 

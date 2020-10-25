@@ -2,6 +2,7 @@ package com.example.turfwarsclient.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -34,6 +35,7 @@ public class ControlScreen extends AppCompatActivity implements View.OnClickList
     private int x,y;
 
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,10 +66,15 @@ public class ControlScreen extends AppCompatActivity implements View.OnClickList
                                         while (buttonPressed){
                                             runOnUiThread(
                                                     () ->{
-                                                        coordinate.setPosY(coordinate.getPosY()-3);
-                                                        line =  gson.toJson(coordinate);
-                                                        tcp.sendMessages(line);
-                                                    }
+                                                        if(y>140){
+                                                            coordinate.setPosY(y-3);
+                                                            coordinate.setPosX(x);
+                                                            line =  gson.toJson(coordinate);
+                                                            if(line!=null){
+                                                                tcp.sendMessages(line);
+                                                            }
+                                                        }
+                                                                                                          }
                                             );
                                             try {
                                                 Thread.sleep(150);
@@ -95,9 +102,15 @@ public class ControlScreen extends AppCompatActivity implements View.OnClickList
                                         while (buttonPressed){
                                             runOnUiThread(
                                                     () ->{
-                                                        coordinate.setPosY(coordinate.getPosY()+3);
-                                                        line =  gson.toJson(coordinate);
-                                                        tcp.sendMessages(line);
+                                                        if(y<360) {
+
+                                                            coordinate.setPosY(y+3);
+                                                            coordinate.setPosX(x);
+                                                            line =  gson.toJson(coordinate);
+                                                            if(line!=null){
+                                                                tcp.sendMessages(line);
+                                                            }
+                                                        }
                                                     }
                                             );
                                             try {
@@ -126,9 +139,15 @@ public class ControlScreen extends AppCompatActivity implements View.OnClickList
                                         while (buttonPressed){
                                             runOnUiThread(
                                                     () ->{
-                                                        coordinate.setPosX(coordinate.getPosX()+3);
-                                                        line =  gson.toJson(coordinate);
-                                                        tcp.sendMessages(line);
+                                                        if(x<1250){
+                                                            coordinate.setPosX(x+3);
+                                                            coordinate.setPosY(y);
+                                                            line =  gson.toJson(coordinate);
+                                                            if(line!=null){
+                                                                tcp.sendMessages(line);
+                                                            }
+                                                        }
+
                                                     }
                                             );
                                             try {
@@ -157,9 +176,15 @@ public class ControlScreen extends AppCompatActivity implements View.OnClickList
                                         while (buttonPressed){
                                             runOnUiThread(
                                                     () ->{
-                                                        coordinate.setPosX(coordinate.getPosX()-3);
-                                                        line =  gson.toJson(coordinate);
-                                                        tcp.sendMessages(line);
+                                                        if(x>50){
+                                                            coordinate.setPosX(x-3);
+                                                            coordinate.setPosY(y);
+                                                            line =  gson.toJson(coordinate);
+                                                            if(line!=null){
+                                                                tcp.sendMessages(line);
+                                                            }
+                                                        }
+
                                                     }
                                             );
                                             try {
@@ -190,9 +215,11 @@ public class ControlScreen extends AppCompatActivity implements View.OnClickList
         switch (view.getId()) {
 
             case R.id.btnShot:
-                Bullet bullet = new Bullet(x,y,3);
+                Bullet bullet = new Bullet(x,y,10,5);
                 line = gson.toJson(bullet);
-                tcp.sendMessages(line);
+                if(line!=null){
+                    tcp.sendMessages(line);
+                }
                 break;
         }
     }
@@ -206,5 +233,15 @@ public class ControlScreen extends AppCompatActivity implements View.OnClickList
     public void newPosition(int x, int y) {
     this.x = x;
     this.y = y;
+    }
+
+    @Override
+    public void currentLife(String status) {
+        if(status.equals("Media")){
+            barLife.setImageResource(R.drawable.controlesvidamedia);
+        }
+        if(status.equals("Baja")){
+            barLife.setImageResource(R.drawable.controlesvidabajo);
+        }
     }
 }

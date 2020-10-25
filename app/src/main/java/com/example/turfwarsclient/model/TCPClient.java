@@ -30,13 +30,7 @@ public class TCPClient extends Thread {
 
 
 
-    public String getNumberServer() {
-        return numberServer;
-    }
 
-    public void setNumberServer(String numberServer) {
-        this.numberServer = numberServer;
-    }
 
     private String numberServer;
     private Socket socket;
@@ -47,6 +41,14 @@ public class TCPClient extends Thread {
     public void setObserver(OnMessageListener observer) {
         // TODO Auto-generated method stub
         this.observer = observer;
+    }
+
+    public String getNumberServer() {
+        return numberServer;
+    }
+
+    public void setNumberServer(String numberServer) {
+        this.numberServer = numberServer;
     }
 
     @Override
@@ -76,6 +78,10 @@ public class TCPClient extends Thread {
                         Coordinate coord = gson.fromJson(line, Coordinate.class);
                         this.observer.newPosition(coord.getPosX(), coord.getPosY());
                         break;
+                    case "Life":
+                        Life life = gson.fromJson(line,Life.class);
+                        this.observer.currentLife(life.getStatus());
+                        break;
                 }
             }
 
@@ -88,8 +94,12 @@ public class TCPClient extends Thread {
         new Thread(
                 () ->{
                     try {
-                        writer.write(msg+"\n");
-                        writer.flush();
+                        Log.e(msg,msg);
+                        if(msg!=null){
+                            writer.write(msg+"\n");
+                            writer.flush();
+                        }
+
                     } catch (IOException e){
                         e.printStackTrace();
 
